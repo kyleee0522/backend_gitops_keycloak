@@ -27,6 +27,8 @@ spec:
           - name: SPRING_DATASOURCE_URL            
             value: "jdbc:mariadb://211.43.12.162:31381/edu"
           - name: APP_CORS_ALLOWED_ORIGINS            
-            value: "frontend-keycloak"          
+            value: "frontend-keycloak"
+          - name: SERVER_PORT            
+            value: "8080" 
         ports:
         - containerPort: 8080
