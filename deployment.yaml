@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-keycloak
+  name: backend-keycloak-ssl
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: backend-keycloak
+      app: backend-keycloak-ssl
   template:
     metadata:
       labels:
-        app: backend-keycloak
+        app: backend-keycloak-ssl
     spec:
       containers:
-      - name: backend-keycloak
-        image: ghcr.io/kyleee0522/springboot_crud_security_keycloak:v1
+      - name: backend-keycloak-ssl
+        image: ghcr.io/kyleee0522/springboot_crud_security_keycloak:v4
         imagePullPolicy: Always
         env:
           - name: SPRING_PROFILES_ACTIVE
@@ -27,7 +27,7 @@ spec:
           - name: SPRING_DATASOURCE_URL            
             value: "jdbc:mariadb://211.43.12.162:31381/edu"
           - name: APP_CORS_ALLOWED_ORIGINS            
-            value: "frontend-keycloak"
+            value: "frontend-keycloak-ssl"
           - name: SERVER_PORT            
             value: "8080" 
         ports:
