@@ -1,14 +1,14 @@
 apiVersion: v1	
 kind: Service	
 metadata:	
-  name: backend-keycloak
+  name: backend-keycloak-ssl
   labels:
-    app: backend-keycloak
+    app: backend-keycloak-ssl
 spec:	
   ports:	
   - port: 80	
     targetPort: 8080
     name: http
   selector:	
-    app: backend-keycloak
+    app: backend-keycloak-ssl
   type: ClusterIP
